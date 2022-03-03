@@ -1,0 +1,15 @@
+class Solution {
+    public int numberOfArithmeticSlices(int[] nums) {
+       
+       int count = 0, ans = 0, diff = Integer.MAX_VALUE;
+        for (int i = 1; i < nums.length; i++) {
+            int newDiff = nums[i] - nums[i-1];
+            if (newDiff == diff) ans += count++;
+            else {
+                diff = newDiff;
+                count = 1;
+            }
+        }
+        return ans;
+    }
+}
